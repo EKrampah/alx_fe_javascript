@@ -19,6 +19,19 @@ document.addEventListener("DOMContentLoaded", function () {
   // Populate categories on page load
   populateCategories();
   filterQuotes();
+  
+  function createAddQuoteForm() {
+    const formContainer = document.createElement("div");
+    formContainer.innerHTML = `
+        <input id="newQuoteText" type="text" placeholder="Enter a new quote" />
+        <input id="newQuoteCategory" type="text" placeholder="Enter quote category" />
+        <button id="addQuoteBtn">Add Quote</button>
+      `;
+    document.body.appendChild(formContainer);
+
+    document.getElementById("addQuoteBtn").addEventListener("click", addQuote);
+  }
+
 
   // Event Listeners
   newQuoteBtn.addEventListener("click", showRandomQuote);
